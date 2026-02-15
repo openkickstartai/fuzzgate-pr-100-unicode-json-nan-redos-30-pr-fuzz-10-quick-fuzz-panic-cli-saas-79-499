@@ -1,0 +1,29 @@
+{
+  "name": "fuzzgate",
+  "version": "1.0.0",
+  "description": "PR-level intelligent fuzz testing gate engine",
+  "main": "src/fuzzer.ts",
+  "bin": {
+    "fuzzgate": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc --outDir dist --rootDir src --module commonjs --target es2020 --esModuleInterop --strict --skipLibCheck --declaration",
+    "test": "jest --forceExit --detectOpenHandles",
+    "start": "npx tsx src/index.ts"
+  },
+  "keywords": ["fuzz", "fuzzing", "security", "testing", "ci", "gate"],
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "@types/node": "^20.11.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "@types/jest": "^29.5.12"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "testMatch": ["**/test/**/*.test.ts"],
+    "testTimeout": 30000
+  }
+}
